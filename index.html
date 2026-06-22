@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kintsugi* · мост · неделя 4</title>
+<style>
+    :root {
+        --bg-vanilla: #f1eada;
+        --text-mahogany: #584738;
+        --accent-gold: #c9a96e;
+        --border-soft: rgba(88, 71, 56, 0.15);
+        --bg-card: rgba(88, 71, 56, 0.03);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; text-transform: lowercase; }
+    body { background-color: var(--bg-vanilla); color: var(--text-mahogany); line-height: 1.8; padding: 40px 24px; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; }
+    .poster-container { width: 100%; max-width: 760px; background-color: var(--bg-vanilla); border: 1px solid var(--border-soft); padding: 60px 48px; display: flex; flex-direction: column; gap: 50px; box-shadow: 0 12px 40px rgba(88,71,56,0.05); border-radius: 4px; }
+    @media (max-width: 600px) { body { padding: 16px 8px; } .poster-container { padding: 40px 20px; gap: 40px; } }
+    header { border-bottom: 1px solid var(--border-soft); padding-bottom: 30px; text-align: center; }
+    .brand-meta { font-size: 0.85rem; letter-spacing: 0.2em; opacity: 0.7; margin-bottom: 12px; }
+    h1 { font-size: 2.2rem; font-weight: 300; letter-spacing: -0.02em; line-height: 1.2; color: var(--text-mahogany); margin-bottom: 8px; }
+    .subtitle { font-size: 1.1rem; letter-spacing: 0.05em; opacity: 0.8; }
+    .manifesto-box { text-align: center; max-width: 600px; margin: 0 auto; }
+    .manifesto-lead { font-size: 1.25rem; font-weight: 400; line-height: 1.6; margin-bottom: 12px; }
+    .manifesto-sub { font-size: 0.95rem; opacity: 0.65; line-height: 1.7; }
+    .section-label { font-size: 0.9rem; letter-spacing: 0.15em; opacity: 0.8; border-bottom: 1px solid var(--border-soft); padding-bottom: 12px; margin-bottom: 24px; }
+    .flow-box { background: var(--bg-card); border: 1px solid var(--border-soft); border-radius: 6px; padding: 30px; }
+    .flow-title { font-size: 0.9rem; letter-spacing: 0.1em; opacity: 0.8; margin-bottom: 24px; text-align: center; border-bottom: 1px solid var(--border-soft); padding-bottom: 10px; }
+    .flow-grid { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; gap: 16px; text-align: center; }
+    @media (max-width: 600px) { .flow-grid { grid-template-columns: 1fr; gap: 20px; } .flow-arrow { transform: rotate(90deg); } }
+    .flow-card { padding: 16px; border-radius: 4px; background: rgba(255,255,255,0.4); border: 1px solid rgba(88,71,56,0.05); }
+    .flow-step { font-size: 0.75rem; letter-spacing: 0.1em; opacity: 0.5; margin-bottom: 8px; }
+    .flow-name { font-size: 1rem; font-weight: 500; margin-bottom: 6px; }
+    .flow-desc { font-size: 0.85rem; opacity: 0.7; line-height: 1.4; }
+    .flow-arrow { font-size: 1.5rem; color: var(--accent-gold); opacity: 0.8; }
+    .word-box { background: rgba(199,169,110,0.06); border-left: 2px solid var(--accent-gold); padding: 28px 32px; border-radius: 0 6px 6px 0; }
+    .word-title { font-size: 1.8rem; font-weight: 300; letter-spacing: 0.05em; margin-bottom: 16px; color: var(--text-mahogany); }
+    .word-body { font-size: 0.95rem; line-height: 1.75; opacity: 0.85; }
+    .pairs-section { display: flex; flex-direction: column; gap: 20px; }
+    .pair-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 600px) { .pair-row { grid-template-columns: 1fr; } }
+    .pair-card { background: rgba(255,255,255,0.6); border: 1px solid var(--border-soft); border-radius: 6px; padding: 20px; }
+    .pair-word { font-size: 1.05rem; font-weight: 500; margin-bottom: 6px; color: var(--text-mahogany); }
+    .pair-desc { font-size: 0.85rem; opacity: 0.7; line-height: 1.5; }
+    .synthesis-box { background: var(--bg-card); border: 1px solid var(--border-soft); border-radius: 6px; padding: 30px; display: flex; flex-direction: column; gap: 20px; }
+    .synthesis-row { display: flex; gap: 16px; align-items: flex-start; }
+    .synthesis-num { font-size: 0.85rem; font-weight: 600; color: var(--accent-gold); letter-spacing: 0.1em; padding-top: 3px; flex-shrink: 0; }
+    .synthesis-text { font-size: 0.95rem; line-height: 1.7; }
+    .questions-box { display: flex; flex-direction: column; gap: 20px; }
+    .question-item { display: flex; gap: 20px; align-items: flex-start; }
+    .question-num { font-size: 0.9rem; font-weight: 500; color: var(--accent-gold); letter-spacing: 0.1em; padding-top: 3px; }
+    .question-text { font-size: 1rem; opacity: 0.9; }
+    .practice-container { border: 1px solid var(--border-soft); border-radius: 6px; padding: 30px; text-align: center; background: var(--bg-card); display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .practice-title { font-size: 1.1rem; letter-spacing: 0.1em; font-weight: 400; }
+    .practice-focus { font-size: 0.85rem; opacity: 0.6; letter-spacing: 0.05em; }
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
+    .btn-primary { display: inline-flex; align-items: center; padding: 13px 30px; background: var(--text-mahogany); color: var(--bg-vanilla); border-radius: 40px; font-size: 0.9rem; letter-spacing: 0.05em; text-decoration: none; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--accent-gold); }
+    .btn-outline { display: inline-flex; align-items: center; padding: 13px 30px; background: transparent; color: var(--text-mahogany); border: 1px solid var(--text-mahogany); border-radius: 40px; font-size: 0.9rem; letter-spacing: 0.05em; text-decoration: none; transition: all 0.2s; }
+    .btn-outline:hover { background: var(--text-mahogany); color: var(--bg-vanilla); }
+    footer { border-top: 1px solid var(--border-soft); padding-top: 35px; text-align: center; display: flex; flex-direction: column; gap: 12px; }
+    .footer-quote { font-size: 1.15rem; letter-spacing: 0.05em; font-weight: 300; }
+    .footer-meta { font-size: 0.8rem; letter-spacing: 0.15em; opacity: 0.5; }
+</style>
+</head>
+<body>
+<div class="poster-container">
+
+    <header>
+        <div class="brand-meta">виктория голдберг · kintsugi* · неделя 4</div>
+        <h1>мост</h1>
+        <div class="subtitle">между телом, эмоцией и языком</div>
+    </header>
+
+    <section class="manifesto-box">
+        <p class="manifesto-lead">они не работают по очереди. они связаны одновременно.</p>
+        <p class="manifesto-sub">тело сигналит. язык называет. название определяет что происходит дальше. четыре недели мы наблюдали по отдельности — эта неделя про то, как всё это связано.</p>
+    </section>
+
+    <section class="flow-box">
+        <div class="flow-title">как это работает одновременно</div>
+        <div class="flow-grid">
+            <div class="flow-card">
+                <div class="flow-step">уровень 01</div>
+                <div class="flow-name">тело</div>
+                <div class="flow-desc">сигналит раньше мысли — дыхание, пульс, зажим</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-card">
+                <div class="flow-step">уровень 02</div>
+                <div class="flow-name">эмоция</div>
+                <div class="flow-desc">получает имя — точное или привычное</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-card">
+                <div class="flow-step">уровень 03</div>
+                <div class="flow-name">язык</div>
+                <div class="flow-desc">определяет что с этим делать дальше</div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-label">слово-ловушка</div>
+        <div class="word-box">
+            <div class="word-title">«просто»</div>
+            <div class="word-body">маленькое слово с большим эффектом. «просто заметь». «просто побудь». звучит как облегчение — и одновременно создаёт невидимую планку. если это просто — значит должно быть легко. если не получается — значит что-то не так со мной. язык создаёт ожидание раньше, чем мы успеваем встретиться с реальным опытом.</div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-label">точность слова меняет состояние</div>
+        <div class="pairs-section">
+            <div class="pair-row">
+                <div class="pair-card">
+                    <div class="pair-word">«я раздражена»</div>
+                    <div class="pair-desc">vs «я злюсь» — разный масштаб</div>
+                </div>
+                <div class="pair-card">
+                    <div class="pair-word">«мне грустно»</div>
+                    <div class="pair-desc">vs «мне больно» — разная глубина</div>
+                </div>
+            </div>
+            <div class="pair-row">
+                <div class="pair-card">
+                    <div class="pair-word">«я тревожусь»</div>
+                    <div class="pair-desc">vs «мне страшно» — разный контакт с собой</div>
+                </div>
+                <div class="pair-card">
+                    <div class="pair-word">«я немного устала»</div>
+                    <div class="pair-desc">vs «у меня нет сил» — разное разрешение телу</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-label">четыре недели · синтез</div>
+        <div class="synthesis-box">
+            <div class="synthesis-row">
+                <div class="synthesis-num">неделя 1</div>
+                <div class="synthesis-text">тело фиксирует то, что психика предпочла не замечать.</div>
+            </div>
+            <div class="synthesis-row">
+                <div class="synthesis-num">неделя 2</div>
+                <div class="synthesis-text">нервная система выбирает стратегию защиты — бей, беги, замри, угодничество.</div>
+            </div>
+            <div class="synthesis-row">
+                <div class="synthesis-num">неделя 3</div>
+                <div class="synthesis-text">язык фильтрует переживание ещё до того как оно оформилось.</div>
+            </div>
+            <div class="synthesis-row">
+                <div class="synthesis-num">неделя 4</div>
+                <div class="synthesis-text">всё это происходит одновременно — и связано между собой.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="questions-box">
+        <div class="section-label">вопросы для тихого наблюдения</div>
+        <div class="question-item">
+            <div class="question-num">01</div>
+            <div class="question-text">какое слово чаще всего появляется когда тело сигналит что-то неприятное — и что оно делает с интенсивностью ощущения?</div>
+        </div>
+        <div class="question-item">
+            <div class="question-num">02</div>
+            <div class="question-text">есть ли эмоция которую вы называете одним словом — хотя внутри она устроена сложнее?</div>
+        </div>
+        <div class="question-item">
+            <div class="question-num">03</div>
+            <div class="question-text">что меняется если дать переживанию более точное имя — не «ничего страшного», а то что есть?</div>
+        </div>
+    </section>
+
+    <section class="practice-container">
+        <div class="practice-title">аудио-практика · почувствовать и назвать</div>
+        <div class="practice-focus">заметить ощущение · дать ему имя · наблюдать как тело реагирует на слово</div>
+        <p class="manifesto-sub">без подготовки · в любой момент дня · этого достаточно.</p>
+        <div class="btn-row">
+            <a href="#" class="btn-primary">слушать практику</a>
+            <a href="4.мост-kintsugi.pdf" download class="btn-outline">скачать конспект</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-quote">первый шаг — не изменить. первый шаг — заметить.</div>
+        <div class="footer-meta">kintsugi* · неделя 4 · виктория голдберг · рефлексия.fm</div>
+    </footer>
+
+</div>
+</body>
+</html>
